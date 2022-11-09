@@ -1,0 +1,32 @@
+1.列表
+特点： 可以容纳多个元素；可以容纳不同类型的元素；数据是有序存储的；允许重复数据存在；可以修改
+定义一个列表
+    myList = ["apple", 1, [2, "dog"]]
+（1）查询
+    myList.index(元素) //查找指定元素在列表的下标，如果找不到，报错ValueError
+（2）增加一个元素
+    myList.insert(索引, 元素)
+    myList.append(元素)
+    myList.extend(其他数据容器) //其他数据容器可以是列表、元组等
+                              //myList.extend([7, 8]) myList的值变为 ["apple", 1, [2, "dog"], 7, 8]
+（3）修改特定索引的值
+    myList[索引] = 元素
+（4）删除列表中的元素
+    del myList[索引]
+    myList.pop(索引)
+    myList.remove(元素) //删除该元素在列表中的第一个匹配项
+    myList.clear() //清空整个列表
+（5）统计元素
+    myList.count(元素) //列表中某个元素的数量
+    len(myList) //统计列表中所有元素的数量
+（6）遍历列表: while或for循环
+    //while循环
+    index = 0
+    while index < len(myList):
+        element = myList[index]
+        print(f"列表的元素: {element}")
+        index += 1
+
+    //for循环
+    for element in myList:
+        print(f"列表的元素: {element}")
