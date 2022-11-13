@@ -18,5 +18,9 @@ f = open("D:/王艳呀.txt", "r", encoding="UTF-8")
     （5）关闭文件
         f.close()
 
+    (6)with open 在操作完成后自动关闭文件
+        with open("D:/王艳呀.txt", "r") as f:
+            f.readlines()
+
 
 
