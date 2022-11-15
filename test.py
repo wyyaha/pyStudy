@@ -14,5 +14,3 @@
 #     1 / 0
 # except Exception as e:
 #     print(f"出现异常：{e}")
-
-from numpy inport
