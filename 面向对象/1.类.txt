@@ -49,4 +49,21 @@
 5.继承
 class 类名(父类1，父类2):
     类内容体 //如果不想写内容，可以用pass代替;如果父类中有同名成员属性，则位置靠前的父类优先
+6.复写父类成员变量和成员方法
+    调用父类成员变量或成员方法：
+        super().成员变量 或 父类名.成员变量
 
+7.类型注解：有两种
+    （1）变量的类型注解：
+        var_a: int = 2
+        my_tuple: tuple = (1, "d", 4)
+        my_dict: dict[str, int] = {"s": 2}
+        my_tuple1: tuple[int, str, bool] = (1, "s", True) //元组类型设置变量注解，需要将每一个元素类型都标记出来
+        data = [1, True, "s"]
+        my_dict1 = json.dumps(data)  # type: [int, bool, str]
+
+        def func():
+            return 4
+
+        test1 = func() # type: int
+    （2）函数形参列表和返回值的类型注解
