@@ -53,7 +53,7 @@ class 类名(父类1，父类2):
     调用父类成员变量或成员方法：
         super().成员变量 或 父类名.成员变量
 
-7.类型注解：有两种
+7.类型注解：有3种
     （1）变量的类型注解：
         var_a: int = 2
         my_tuple: tuple = (1, "d", 4)
@@ -67,3 +67,23 @@ class 类名(父类1，父类2):
 
         test1 = func() # type: int
     （2）函数形参列表和返回值的类型注解
+        def 函数方法名（形参：类型，......, 形参：类型） -> 返回值类型：
+            pass
+
+        def func(a: int, b: int) -> int:
+            return a+b
+
+
+        test1 = func(2, 3)
+
+    （3）Union联合类型注解
+        from typing import Union
+
+        my_list: list[Union[str, int]] = [1, 2, 'sg', 'vf']
+        my_dict: dict[str, Union[str, int]] = {"t": 1, "h": "l"}
+
+        def func(data: Union[int, str]) -> Union[int, str]:
+            pass
+
+8.含有抽象方法的类称为抽象类:抽象类相当于定义一个标准，包含一些抽象方法，要求子类必须实现
+  抽象方法：方法体为空的方法
