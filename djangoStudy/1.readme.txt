@@ -1,0 +1,36 @@
+1.安装django
+    pip install django
+    安装django后，会在python的安装包中Scripts文件夹下生成django-admin.exe（工具，用于创建django项目中的文件和文件夹），在Lib/site-packages下生成django文件夹(框架的源码)
+2.创建项目
+    django-admin startproject 项目名
+    生成的项目文件介绍：
+        manage.py   --用于项目管理，启动项目，创建app,数据管理
+        firstProject
+            settings.py --项目的配置文件
+            asgi.py     --用于接收网络请求
+            wsgi.py     --用于接收网络请求
+            urls.py     --路由
+3.创建第一个app
+    python manage.py startapp app01         --会生成一个app01的包
+    将创建的app注册进django,找到项目根目录下的同名package中的settings.py,在INSTALLED_APPS下添加
+        'app01.apps.App01Config',  -- 参考app01包内apps.py的类名
+4.运行第一个django项目
+    创建url和view的对应关系
+        (1)在项目根目录的同名package下的urls.py中添加
+            from ..app01 import views
+            path('index/', views.index),
+
+        (2)在app01的views.py中添加
+            from django.http import HttpResponse
+            from django.shortcuts import render
+
+            # Create your views here.
+            def index(request):
+                return HttpResponse("欢迎使用django")
+        (3)启动项目
+            python manage.py runserver
+
+虚拟化技术分为3种：
+    （1）虚拟机
+    （2）虚拟容器:docker
+    （3）虚拟环境：virtualenv
