@@ -1,5 +1,6 @@
 1.安装django
     pip install django
+    pip install慢可以用国内镜像源 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple package_name
     安装django后，会在python的安装包中Scripts文件夹下生成django-admin.exe（工具，用于创建django项目中的文件和文件夹），在Lib/site-packages下生成django文件夹(框架的源码)
 2.创建项目
     django-admin startproject 项目名
@@ -29,7 +30,13 @@
                 return HttpResponse("欢迎使用django")
         (3)启动项目
             python manage.py runserver
-
+            网页输入 http://127.0.0.1:8000/index 即可访问
+5.想要自己写模板，可以在app01下创建templates文件夹，添加模板文件
+    view.py中修改为将数据渲染到模板文件
+    def user_list(request):
+        return render(request, "user_list.html")
+6.引入静态文件
+    在app01下面创建static文件夹
 虚拟化技术分为3种：
     （1）虚拟机
     （2）虚拟容器:docker
