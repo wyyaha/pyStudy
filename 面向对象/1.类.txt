@@ -1,0 +1,89 @@
+1.定义成员方法
+    #self关键字不可省略，表示类对象自身；在方法内部，想要访问类的成员变量，必须使用self
+    def 方法名（self, 形参1, ......, 形参N）：
+        方法体
+2.构造方法: __init__()
+    在创建类对象时，构造方法会自动执行，并将传入参数自动传递给__init__方法使用
+    class Student:
+        name = None
+        age = None
+        tel = none
+
+        def __init__(self, name, age, tel):
+            self.name = name
+            self.age = age
+            self.tel = tel
+            print("Student类创建了一个对象")
+
+
+    stu = Student("周周", 20, "121457779")
+
+3.魔术方法：字符前后都有__
+    __init__
+    __str__
+    __lt__
+    --le__
+    __eq__
+
+4.私有成员变量： 变量名以__开头
+  私有成员方法： 方法名以__开头
+    class Phone:
+        __current_voltage = 1
+
+        def __keep_sing_core(self):
+            print("CPU以单核运行")
+
+        def call_5g(self):
+            if(self.__current_voltage >= 1):
+                print("5g通话开启")
+            else:
+                self.__keep_sing_core()
+                print("电量不足，设置为单核通电")
+
+
+    phone = Phone()
+    phone.__current_voltage  # 会报错
+    phone.__keep_sing_core()  # 会报错
+    phone.call_5g()
+
+5.继承
+class 类名(父类1，父类2):
+    类内容体 //如果不想写内容，可以用pass代替;如果父类中有同名成员属性，则位置靠前的父类优先
+6.复写父类成员变量和成员方法
+    调用父类成员变量或成员方法：
+        super().成员变量 或 父类名.成员变量
+
+7.类型注解：有3种
+    （1）变量的类型注解：
+        var_a: int = 2
+        my_tuple: tuple = (1, "d", 4)
+        my_dict: dict[str, int] = {"s": 2}
+        my_tuple1: tuple[int, str, bool] = (1, "s", True) //元组类型设置变量注解，需要将每一个元素类型都标记出来
+        data = [1, True, "s"]
+        my_dict1 = json.dumps(data)  # type: [int, bool, str]
+
+        def func():
+            return 4
+
+        test1 = func() # type: int
+    （2）函数形参列表和返回值的类型注解
+        def 函数方法名（形参：类型，......, 形参：类型） -> 返回值类型：
+            pass
+
+        def func(a: int, b: int) -> int:
+            return a+b
+
+
+        test1 = func(2, 3)
+
+    （3）Union联合类型注解
+        from typing import Union
+
+        my_list: list[Union[str, int]] = [1, 2, 'sg', 'vf']
+        my_dict: dict[str, Union[str, int]] = {"t": 1, "h": "l"}
+
+        def func(data: Union[int, str]) -> Union[int, str]:
+            pass
+
+8.含有抽象方法的类称为抽象类:抽象类相当于定义一个标准，包含一些抽象方法，要求子类必须实现
+  抽象方法：方法体为空的方法

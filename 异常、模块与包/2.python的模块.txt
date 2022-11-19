@@ -14,3 +14,8 @@
 
         # from time import sleep as ss
         # ss(3)
+
+    (2)自定义模块
+        新建一个python文件，比如my_module.py,然后在另一个文件中导入
+        如果一个模块中有'__all__'变量，当使用`from XXX import *`导入时，只能导入这个列表中的元素
+            __all__ = ['testA']

@@ -2,4 +2,6 @@
 /shelf/
 /workspace.xml
 .idea/*
-test.py
+/test.py
+my_package/
+render.html

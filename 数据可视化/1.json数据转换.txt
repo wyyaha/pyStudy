@@ -1,0 +1,4 @@
+import json
+data = [{"name": "小王", "age": 12}, {"name": "张三", "age": 20}]
+data = json.dumps(data, ensure_ascii=False) //把python数据转换成了json数据,ensure_ascii保证中文正常显示
+data = json.loads(data) //把python数据转换成python列表或字典

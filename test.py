@@ -18,7 +18,3 @@
 # from time import sleep
 #
 # sleep(1)
-
-from time import sleep as ss
-
-ss(3)

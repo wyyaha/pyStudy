@@ -1,0 +1,22 @@
+安装pyecharts包：pip install pyecharts
+https://gallery.pyecharts.org 可以查看一些已经做好的图表
+https://pyecharts.org 官方文档
+    （1）使用：会在同级目录下生成一个render.html文件，通过浏览器可以看到对应的图表
+        from pyecharts.charts import Line
+
+        line = Line() #得到折线图对象
+        line.add_xaxis(["中国", "美国", "英国"]) #添加x轴坐标
+        line.add_yaxis("GDP", [10, 30, 50]) #GDP为y轴数据名称，添加y轴坐标
+        line.render() #生成图表
+    (2)全局配置项：
+        LegendOpts:图例配置项；VisualMapOpts:视觉映射配置项;ToolTipOpts:提示框配置项
+        set_global_opts方法进行配置
+        from pyecharts.options import TitleOpts, LegendOpts, ToolboxOpts, VisualMapOpts, TooltipOpts
+
+        line.set_global_opts(
+            title_opts = TitleOpts("GDP展示", pos_left="center", pos_bottom="1%"), #pos_left：靠近最左边的距离
+            legend_opts = LegendOpts(is_show=True),
+            toolbox_opts = ToolboxOpts(is_show=True),
+            visualmap_opts = VisualMapOpts(is_show=True),
+            tooltip_opts = TooltipOpts(is_show=True),
+        )
