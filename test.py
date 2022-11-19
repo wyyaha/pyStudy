@@ -10,7 +10,15 @@
 # fr.close()
 # fy.close()
 
-try:
-    1 / 0
-except Exception as e:
-    print(f"出现异常：{e}")
+# try:
+#     1 / 0
+# except Exception as e:
+#     print(f"出现异常：{e}")
+
+# from time import sleep
+#
+# sleep(1)
+
+from time import sleep as ss
+
+ss(3)
