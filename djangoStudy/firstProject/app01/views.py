@@ -9,5 +9,12 @@ def index(request):
 def user_list(request):
     return render(request, 'user_list.html')
 
+
 def user_add(request):
     return HttpResponse('添加用户')
+
+
+def tpl(request):
+    name = "王丫"
+    roles = ["管理员", "保安"]
+    return render(request, 'tpl.html', {'n1': name, 'roles': roles})

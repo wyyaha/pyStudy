@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tpl</title>
+</head>
+<body>
+<div>{{n1}}</div>
+<div>{{roles.0}}</div>
+<div>
+    {% for item in roles %}
+        <span>{{ item }}</span>
+    {% endfor %}
+</div>
+</body>
+</html>
