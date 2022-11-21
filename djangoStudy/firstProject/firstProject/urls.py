@@ -24,5 +24,6 @@ urlpatterns = [
     path('user/add/', views.user_add),
     path('tpl/', views.tpl),
     path('news/', views.news),
-    path('something/', views.something)
+    path('something/', views.something),
+    path('login/', views.login),
 ]

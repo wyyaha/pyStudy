@@ -1,7 +1,7 @@
 import json
 import requests
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 
 def index(request):
@@ -29,7 +29,20 @@ def news(request):
     data_list = res.json()
     return render(request, 'news.html', {'data_list': data_list})
 
+
 def something(request):
     # request是一个对象，封装了所有用户发过来的数据
     print(request.GET)
     return HttpResponse("返回内容")
+
+
+def login(request):
+    if request.method == "GET":
+        return render(request, 'login.html')
+    username = request.POST.get("username")
+    pwd = request.POST.get("pwd")
+    if username == "root" and pwd == "123":
+        return redirect("https://www.baidu.com")
+    else:
+        error_msg = "登录失败"
+        return render(request, 'login.html', {'error_msg': error_msg})
