@@ -11,6 +11,13 @@
     {% for item in roles %}
         <span>{{ item }}</span>
     {% endfor %}
+
+    {% for k,v in tels.items %}
+        <span>{{ v }}</span>
+    {% endfor %}
+    {% for v in tels.values %}
+        <span>{{ v }}</span>
+    {% endfor %}
 </div>
 </body>
 </html>
