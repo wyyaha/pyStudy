@@ -7,8 +7,8 @@
 <body>
 <div>
     <ul>
-        {% for items in news_list %}
-            <li>{{ items.nes_title }}</li>
+        {% for items in data_list %}
+            <li>{{ items.news_title }}          时间： {{items.post_time}}</li>
         {% endfor %}
     </ul>
 </div>

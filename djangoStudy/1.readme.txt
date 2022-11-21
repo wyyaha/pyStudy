@@ -37,6 +37,7 @@
         return render(request, "user_list.html")
 6.引入静态文件
     在app01下面创建static文件夹
+7.遇到requests.get报错，需要加参数headers
 虚拟化技术分为3种：
     （1）虚拟机
     （2）虚拟容器:docker
