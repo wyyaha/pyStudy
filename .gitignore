@@ -5,5 +5,5 @@
 /test.py
 my_package/
 render.html
-*/__pycache__
-firstProject/app01/migrations/
+**/__pycache__
+djangoStudy/firstProject/app01/migrations/
