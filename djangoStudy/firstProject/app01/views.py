@@ -49,13 +49,13 @@ def login(request):
 
 
 def orm(request):
-    # Department.objects.create(title="销售部")
-    # Department.objects.create(title="IT部")
-    # Department.objects.create(title="运营部")
-    #
-    # UserInfo.objects.create(name="武松", password="123", age=12)
-    # UserInfo.objects.create(name="朱2", password="456", age=23)
-    # UserInfo.objects.create(name="武大朗", password="123", age=40)
+    Department.objects.create(title="销售部")
+    Department.objects.create(title="IT部")
+    Department.objects.create(title="运营部")
+
+    UserInfo.objects.create(name="武松", password="123", age=12)
+    UserInfo.objects.create(name="朱2", password="456", age=23)
+    UserInfo.objects.create(name="武大朗", password="123", age=40)
 
     # UserInfo.objects.filter(id=5).delete()
     # UserInfo.objects.all().delete()
