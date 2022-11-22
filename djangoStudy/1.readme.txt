@@ -53,6 +53,9 @@
     python manage.py makemigrations 记录对models.py的改动，并且将这个改动迁移到migrations这个文件夹下
     python manage.py migrate  执行migrations里面新改动的迁移文件，作用到数据库
     如果是在已有的表中新加列，需要给默认值 size = models.IntegerField(default=2)
+10. 停止mysql服务 net stop mysql
+    开启mysql服务 net start mysql
+    mysql和cmd命令行不能显示中文，修改cmd窗口属性中默认代码页为936   命令行输入 chcp 936
 虚拟化技术分为3种：
     （1）虚拟机
     （2）虚拟容器:docker
