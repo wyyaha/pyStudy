@@ -5,3 +5,4 @@
 /test.py
 my_package/
 render.html
+*/__pycache__

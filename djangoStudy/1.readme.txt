@@ -38,6 +38,21 @@
 6.引入静态文件
     在app01下面创建static文件夹
 7.遇到requests.get报错，需要加参数headers
+8.想要在django中使用mysql数据库，需要先安装mysql，然后安装mysqlclient包
+    mysql安装地址（https://downloads.mysql.com/archives/installer/）
+    pip install mysqlclient
+    生成数据库命令 create database wyy_day5 DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+    django连接数据库,需要在settings.py文件中进行配置
+9.django操作表
+    在对应app的models.py中创建对应的类，例如
+        class UserInfo(models.Model):
+            name = models.CharField(max_length=32)
+            password = models.CharField(max_length=64)
+            age = models.IntegerField()
+    在项目根目录下执行
+    python manage.py makemigrations 记录对models.py的改动，并且将这个改动迁移到migrations这个文件夹下
+    python manage.py migrate  执行migrations里面新改动的迁移文件，作用到数据库
+    如果是在已有的表中新加列，需要给默认值 size = models.IntegerField(default=2)
 虚拟化技术分为3种：
     （1）虚拟机
     （2）虚拟容器:docker
