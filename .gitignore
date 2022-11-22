@@ -6,4 +6,5 @@
 my_package/
 render.html
 **/__pycache__
-djangoStudy/firstProject/app01/migrations/
+djangoStudy/firstProject/app01/migrations/*
+!djangoStudy/firstProject/app01/migrations/__init__.py
