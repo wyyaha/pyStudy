@@ -9,7 +9,7 @@ def index(request):
 
 
 def user_list(request):
-    return render(request, 'user_list.html')
+    return render(request, 'depart_list.html')
 
 
 def user_add(request):
@@ -71,3 +71,4 @@ def orm(request):
     updateUser = UserInfo.objects.all().update(password=668)
     print(updateUser)
     return HttpResponse("操作数据库成功")
+
