@@ -9,6 +9,11 @@ class Department(models.Model):
 
 class UserInfo(models.Model):
     """员工表"""
+    """
+        insert into app01_userinfo(name, password, age, account, create_time, gender, department_id) values("韩寒", "123", 24, 100.66, "2020-02-28", 2, 1);
+        insert into app01_userinfo(name, password, age, account, create_time, gender, department_id) values("李梅", "123", 43, 100.66, "2020-02-28", 1, 2);
+        insert into app01_userinfo(name, password, age, account, create_time, gender, department_id) values("王丫", "123", 12, 100.66, "2020-02-28", 2, 1);
+    """
     name = models.CharField(verbose_name="姓名", max_length=16)
     password = models.CharField(verbose_name="密码", max_length=64)
     age = models.IntegerField(verbose_name="年龄")

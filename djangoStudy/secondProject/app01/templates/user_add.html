@@ -1,0 +1,69 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"> 新建用户 </h3>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">姓名</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="姓名" name="name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">密码</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="密码" name="password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">年龄</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="年龄" name="age">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">余额</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="余额" name="account">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">入职时间</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="入职时间" name="create_time">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">部门</label>
+                    <div class="col-sm-10">
+                       <select class="form-control" name="depart">
+                            {% for item in depart_choice %}
+                            <option value="{{ item.id }}">{{ item.title }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">性别</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="gender">
+                            {% for item in gender_choice %}
+                            <option value="{{ item.0 }}">{{ item.1 }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary">提 交</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

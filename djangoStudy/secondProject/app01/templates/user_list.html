@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div style="margin-bottom: 10px">
+          <!-- target="_blank" 表示打开新的tab页 -->
+        <a class="btn btn-primary btn-success" href="/user/add" target="_self"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> 新建用户</a>
+      </div>
+    <div class="panel panel-default">
+          <!-- Default panel contents -->
+          <div class="panel-heading"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+            用户列表
+          </div>
+          <!-- Table -->
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>姓名</th>
+                <th>密码</th>
+                <th>年龄</th>
+                <th>账户余额</th>
+                <th>入职时间</th>
+                <th>部门</th>
+                <th>性别</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for item in user_list %}
+                   <tr>
+                     <th>{{ item.id }}</th>
+                     <td>{{ item.name }}</td>
+                     <td>{{ item.password }}</td>
+                     <td>{{ item.age }}</td>
+                     <td>{{ item.account }}</td>
+                     <td>{{ item.create_time|date:"Y-m-d"}}</td>
+                     <td>{{ item.department.title }}</td>
+                     <td>{{ item.get_gender_display }}</td>
+                     <td>
+                       <a class="btn btn-primary btn-xs" href="/user/edit/{{item.id}}/">编辑</a>
+                       <a class="btn btn-danger btn-xs" href="/user/delete/?did={{item.id}}">删除</a>
+                     </td>
+                   </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+      </div>
+{% endblock %}
