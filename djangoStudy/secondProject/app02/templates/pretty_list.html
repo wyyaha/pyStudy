@@ -28,11 +28,11 @@
                      <th>{{ item.id }}</th>
                      <td>{{ item.mobile }}</td>
                      <td>{{ item.price }}</td>
-                     <td>{{ item.level }}</td>
-                     <td>{{ item.status }}</td>
+                     <td>{{ item.get_level_display }}</td>
+                     <td>{{ item.get_status_display }}</td>
                      <td>
-                       <a class="btn btn-primary btn-xs" href="/user/edit/{{item.id}}/">编辑</a>
-                       <a class="btn btn-danger btn-xs" href="/user/delete/{{item.id}}">删除</a>
+                       <a class="btn btn-primary btn-xs" href="/pretty/edit/{{item.id}}/">编辑</a>
+                       <a class="btn btn-danger btn-xs" href="/pretty/delete/{{item.id}}">删除</a>
                      </td>
                    </tr>
                 {% endfor %}

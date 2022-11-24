@@ -50,7 +50,7 @@ class PrettyNum(models.Model):
         (3, "3级"),
         (4, "4级"),
     )
-    level = models.SmallIntegerField(verbose_name="级别", choices=level_choices,default=1)
+    level = models.SmallIntegerField(verbose_name="级别", choices=level_choices, default=1)
     status_choices = (
         (1, "已占用"),
         (2, "未使用"),

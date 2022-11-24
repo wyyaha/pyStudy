@@ -31,4 +31,6 @@ urlpatterns = [
     path('user/delete/<int:uid>/', views.user_delete),
     path('pretty/list/', views.pretty_list),
     path('pretty/add/', views.pretty_add),
+    path('pretty/edit/<int:pid>/', views.pretty_edit),
+    path('pretty/delete/<int:pid>/', views.pretty_delete),
 ]
