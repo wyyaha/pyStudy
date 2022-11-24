@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 from app02 import models
-from app02.models import Department, UserInfo
+from app02.models import Department, UserInfo, PrettyNum
 
 
 # Create your views here.
@@ -118,3 +118,38 @@ def user_delete(request, uid):
     UserInfo.objects.filter(id=uid).delete()
     return redirect('/user/list/')
 
+
+def pretty_list(request):
+    queryset = PrettyNum.objects.all().order_by("-level")
+    return render(request, 'pretty_list.html', {'queryset': queryset})
+
+
+class PrettyModelForm(forms.ModelForm):
+    # name = forms.CharField(min_length=2)
+    class Meta:
+        model = models.PrettyNum
+        fields = ["mobile", "price", "level", "status"]
+        # widgets = {
+        #     "name": forms.TextInput(attrs={"class": "form-control"}),
+        #     "password": forms.PasswordInput(attrs={"class": "form-control"})
+        #
+        # }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for name, field in self.fields.items():
+            field.widget.attrs = {"class": "form-control", "placeholder": field.label}
+
+
+def pretty_add(request):
+    if request.method == 'GET':
+        form = PrettyModelForm()
+        return render(request, 'pretty_add.html', {"form": form})
+    form = PrettyModelForm(data=request.POST)
+    if form.is_valid():
+        # print(form.cleaned_data)
+        form.save()
+        return redirect("/pretty/list/")
+    else:
+        # print(form.errors)
+        return render(request, 'pretty_add.html', {"form": form})

@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div style="margin-bottom: 10px">
+          <!-- target="_blank" 表示打开新的tab页 -->
+        <a class="btn btn-primary btn-success" href="/pretty/add" target="_self"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> 新建靓号</a>
+      </div>
+    <div class="panel panel-default">
+          <!-- Default panel contents -->
+          <div class="panel-heading"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+            靓号列表
+          </div>
+          <!-- Table -->
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>号码</th>
+                <th>价格</th>
+                <th>级别</th>
+                <th>状态</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for item in queryset %}
+                   <tr>
+                     <th>{{ item.id }}</th>
+                     <td>{{ item.mobile }}</td>
+                     <td>{{ item.price }}</td>
+                     <td>{{ item.level }}</td>
+                     <td>{{ item.status }}</td>
+                     <td>
+                       <a class="btn btn-primary btn-xs" href="/user/edit/{{item.id}}/">编辑</a>
+                       <a class="btn btn-danger btn-xs" href="/user/delete/{{item.id}}">删除</a>
+                     </td>
+                   </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+      </div>
+{% endblock %}

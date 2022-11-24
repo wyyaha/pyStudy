@@ -33,3 +33,26 @@ class UserInfo(models.Model):
     )
     # django做的约束,性别只能为男和女
     gender = models.SmallIntegerField(verbose_name="性别", choices=gender_choices)
+
+
+class PrettyNum(models.Model):
+    """
+    靓号表
+     insert into app02_prettynum(mobile, price, level, status) values("15617822301", 21, 1, 1);
+     insert into app02_prettynum(mobile, price, level, status) values("15617822302", 34, 2, 2);
+     insert into app02_prettynum(mobile, price, level, status) values("15617822303", 28, 3, 1);
+    """
+    mobile = models.CharField(verbose_name="手机号", max_length=11)
+    price = models.IntegerField(verbose_name="价格", default=0)
+    level_choices = (
+        (1, "1级"),
+        (2, "2级"),
+        (3, "3级"),
+        (4, "4级"),
+    )
+    level = models.SmallIntegerField(verbose_name="级别", choices=level_choices,default=1)
+    status_choices = (
+        (1, "已占用"),
+        (2, "未使用"),
+    )
+    status = models.SmallIntegerField(verbose_name="状态", choices=status_choices, default=2)

@@ -29,4 +29,6 @@ urlpatterns = [
     path('user/model/form/add/', views.user_model_form_add),
     path('user/edit/<int:uid>/', views.user_edit),
     path('user/delete/<int:uid>/', views.user_delete),
+    path('pretty/list/', views.pretty_list),
+    path('pretty/add/', views.pretty_add),
 ]
