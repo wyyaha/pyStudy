@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from app01 import views
+from app02 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +26,7 @@ urlpatterns = [
     path('depart/edit/<int:did>/', views.depart_edit),
     path('user/list/', views.user_list),
     path('user/add/', views.user_add),
+    path('user/model/form/add/', views.user_model_form_add),
+    path('user/edit/<int:uid>/', views.user_edit),
+    path('user/delete/<int:uid>/', views.user_delete),
 ]
