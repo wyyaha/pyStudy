@@ -117,8 +117,15 @@ def user_delete(request, uid):
 
 
 def pretty_list(request):
-    queryset = PrettyNum.objects.all().order_by("-level")
-    return render(request, 'pretty_list.html', {'queryset': queryset})
+    data_dict = {}
+    search_data = request.GET.get('num', '')
+    page_num = int(request.GET.get('page', 1))
+    start_num = (page_num - 1) * 10
+    end_num = page_num * 10
+    if search_data:
+        data_dict = {'mobile__contains': search_data}
+    queryset = PrettyNum.objects.filter(**data_dict).order_by("id")[start_num: end_num]
+    return render(request, 'pretty_list.html', {'queryset': queryset, 'search_data': search_data})
 
 
 from django.core.validators import RegexValidator

@@ -1,10 +1,22 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <div style="margin-bottom: 10px">
+    <div style="margin-bottom: 10px" class="clearfix">
           <!-- target="_blank" 表示打开新的tab页 -->
         <a class="btn btn-primary btn-success" href="/pretty/add" target="_self"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> 新建靓号</a>
-      </div>
+        <div style="float: right; width:300px">
+            <form method="get">
+                <div class="input-group">
+                   <input type="text" class="form-control" placeholder="Search for..." name="num" value="{{ search_data }}">
+                   <span class="input-group-btn">
+                       <button class="btn btn-default" type="submit">
+                           <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                       </button>
+                   </span>
+                </div><!-- /input-group -->
+            </form>
+        </div>
+    </div>
     <div class="panel panel-default">
           <!-- Default panel contents -->
           <div class="panel-heading"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
@@ -38,5 +50,14 @@
                 {% endfor %}
             </tbody>
           </table>
-      </div>
+    </div>
+    <ul class="pagination">
+        <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+        <li><a href="?page=1">1</a></li>
+        <li><a href="?page=2">2</a></li>
+        <li><a href="?page=3">3</a></li>
+        <li><a href="?page=4">4</a></li>
+        <li><a href="?page=5">5</a></li>
+        <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+    </ul>
 {% endblock %}
